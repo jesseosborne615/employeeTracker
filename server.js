@@ -54,6 +54,10 @@ function start(){
                         case 'Add an employee':
                             addEmployee();
                             return;
+
+                            case 'Update an employee role':
+                                updateEmployeeRole();
+                                return;
     }
     });
 }
