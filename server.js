@@ -158,3 +158,25 @@ function addEmployee(){
     });
 })
 }
+
+function updateEmployeeRole(){
+    inquirer.prompt([
+        {
+        type: 'input',
+        name: 'employee_id',
+        message: 'What is the employee ID of the employee?',
+        },
+        {
+        type: 'input',
+        name: 'role_id',
+        message: 'What is the role ID of the employee?',
+        },
+    ])
+ .then(({ employee_id, role_id }) => {
+    db.query('UPDATE employee SET role_id =? WHERE id =?', [role_id, employee_id], (err, res) => {
+        if(err) throw err;
+        console.table(res);
+        start();
+    });
+})
+}
